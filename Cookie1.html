@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="text_id">
+<input type="button" value="写" onclick="writeCk()">
+<input type="button" value="读" onclick="readCk()">
+<input type="button" value="删" onclick="deleteCk()">
+</body>
+<script>
+    function createCookie(name,value,days,path,domain,secure) {
+        if(days){
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            var expires = date.toGMTString();
+        }else {
+            var expires = "";
+        }
+        cookieString = name + "=" + escape(value);
+        if(expires) cookieString += ";expires" + expires;
+        if(path) cookieString += ";path" + escape(path);
+        if(domain) cookieString += ";domain" + escape(domain);
+        if(secure) cookieString += ";secure";
+        document.cookie = cookieString;
+    }
+
+
+    function getCookie(name) {
+        var nameEquals = name + "=";
+        var crumbs = document.cookie.split(';');
+        for(var i = 0; i < crumbs.length;i++){
+            var crumbs = crumbs[i];
+            if(crumbs.indexOf(nameEquals) == 0){
+                return unescape(crumbs.substring(nameEquals.length,crumbs.length));
+            }
+
+            return null;
+        }
+
+    }
+
+    function deleteCookie(name) {
+        createCookie(name,"",-1);
+    }
+    var key_name="test";
+    function writeCk(){
+        key_value=document.getElementById("text_id").value;
+        createCookie(key_name, key_value, 2);
+    }
+
+    function readCk(){
+        key_value=getCookie(key_name);
+        document.getElementById("text_id").value=key_value;
+    }
+
+    function deleteCk(){
+        deleteCookie(key_name);
+    }
+</script>
+</html>

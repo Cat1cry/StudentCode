@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script> function test(name,temp) {
+    test_line1="姓名:"+name+"\n"
+    if(temp > 38) {
+        alert(name + "当前温度：["+(temp-1) +"°C~" +(temp+1) + "°C]")
+    }else
+    test_line2="当前温度："+(temp-1) +"°C~" +(temp+1) + "°C"
+    test_final=test_line1+test_line2
+    return test_final
+
+}
+name="蒋豪"
+temp=38.5
+test_final1=test(name,temp)
+document.write(test_final1)
+
+</script>
+<body>
+
+
+</body>
+</html>

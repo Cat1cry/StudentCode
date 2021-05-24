@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <title>转盘</title>
+
+    <style>
+        body{
+            background: black;
+            color: white;
+        }
+        .Pwz{
+            position:absolute;
+            left:500px;
+            top: 70px;
+        }
+        .P1wz{
+            position:absolute;
+            left:500px;
+            top: 30px;
+        }
+        .P2wz{
+            position:absolute;
+            left:500px;
+            top: 110px;
+        }
+        .CJwz{
+            position:absolute;
+            left:520px;
+            top: 210px;
+        }
+    </style>
+    <script>
+        i = 0;
+        var b;
+        count_num =0;
+        timer_delay =50;
+        bFalling_down=false;
+        debug = true;
+        var namearr = new Array("张一","张二","张三","张四","张五");
+        var numberarr = new Array("19540201","19540202","19540203","19540204","19540205");
+
+
+        function get(test) {
+            radio_obj = document.getElementsByName(test);
+            for(i=0;i<radio_obj.length;i++){
+                if(radio_obj[i].checked == true){
+                    return radio_obj[i].value;
+
+                }
+            }
+        }
+
+
+        function start_rotate(){
+            bFalling_down=false
+            timer_delay=50
+            fixbug();
+
+
+        }
+        function slow_down() {
+            bFalling_down=true
+        }
+        function fixbug(){
+            if(debug){
+                debug=false
+                rotate_wheel()
+            }
+        }
+        function rotate_wheel() {
+
+
+
+
+                setTimeout(function () {
+                if(bFalling_down){
+                    timer_delay*=1.3
+                }
+                document.getElementById("text1").innerHTML=namearr[i-1] + numberarr[i-1]
+                document.getElementById("text").innerHTML=namearr[i] + numberarr[i]
+                document.getElementById("text2").innerHTML=namearr[i+1] + numberarr[i+1]
+
+
+
+                if(timer_delay < 800){
+                    rotate_wheel()
+
+                }else {
+
+                    var d = new Date();
+                    h = d.getHours();
+                    m = d.getMinutes();
+                    s = d.getSeconds();
+                    time = h + "时" + m + "分" + s + "秒";
+
+                    mytable = document.getElementById("id1");
+
+                    addtr = document.createElement("tr");
+
+                    addtd = document.createElement("td");
+                    addtd1 = document.createElement("td");
+                    addtd2 = document.createElement("td");
+
+                    tdtext = document.createTextNode(namearr[i]);
+                    td1text = document.createTextNode(time);
+                    td2text = document.createTextNode(numberarr[i]);
+
+                    mytable.appendChild(addtr);
+
+                    addtr.appendChild(addtd);
+                    addtr.appendChild(addtd1);
+                    addtr.appendChild(addtd2);
+
+                    addtd.appendChild(tdtext);
+                    addtd1.appendChild(td1text);
+                    addtd2.appendChild(td2text);
+                    if (get("test") == "1"){
+
+
+                        namearr.splice(b,1);
+                        numberarr.splice(b,1);
+                    }else {
+                        namearr = new Array("张一","张二","张三","张四","张五");
+                        numberarr = new Array("19540201","19540202","19540203","19540204","19540205");
+                    }
+
+
+
+                }
+            },timer_delay)
+            i++;
+
+            if(i > namearr.length-1){
+                i = 0;
+            }
+            if(i + 1 > namearr.length-1){
+                i = 1;
+            }
+
+            b = i+1;
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+
+
+<table id="id1" border="5" align="right" style="color: red" >
+    <tr>
+        <td>-- 姓名 --</td>
+        <td>-- 时间 --</td>
+        <td>-- 学号 --</td>
+    </tr>
+</table>
+
+
+<p id="text1" class="P1wz" style="font-size: 20px"></p>
+<p style="font-size: 20px;text-align: center"  class="Pwz">
+    <mark id="text">开始抽奖</mark>
+</p>
+<p id="text2" class="P2wz" style="font-size: 20px"></p>
+
+<div style="text-align: center">
+    <input type="button" onmousedown="start_rotate()" onmouseup="slow_down()" style="font-size: 20px" value="抽奖" class="CJwz">
+</div>
+<div style="text-align: center">
+    <from>
+        <input type="radio" name="test" value="1" >单次抽奖
+        <input type="radio" name="test" value="2" >重复抽奖
+
+    </from>
+</div>
+
+
+</body>
+</html>

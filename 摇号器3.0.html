@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+    var num = 0;
+    var bol = true;
+    var time = 10;
+
+
+
+
+    function start(){
+       num++;
+       document.getElementById("text").innerText = num;
+       if(bol){
+          setTimeout("start()",time)
+       }
+    }
+
+    function over(){
+        bol = false;
+        num++;
+        time += 50;
+        if (time > 300){
+            bol = true;
+        }
+        document.getElementById("text").innerText = num;
+
+        if (bol == false){
+            setTimeout("over()",time);
+        }
+
+    }
+
+
+
+
+
+</script>
+<body>
+<h1 id="text"></h1>
+<input type="button" onmousedown="start()" onmouseup="over()" value="开始">
+
+</body>
+</html>

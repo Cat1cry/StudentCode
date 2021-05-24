@@ -1,0 +1,27 @@
+mark {
+  background-color: red;
+  color: white;
+}
+p.p1css {
+  text-align: center;
+}
+.Timg {
+  height: 200px;
+  width: 500px;
+}
+table {
+  position: absolute;
+  left: 0px;
+  top: 280px;
+}
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("图片/img_2.png") no-repeat 0% 20% / cover;
+  text-align: center;
+}
+.CloroDiv {
+  color: #0181cc;
+}
+.InputDive {
+  color: #0181cc;
+}

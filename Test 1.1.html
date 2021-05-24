@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table{
+
+        text-align: center;
+    }
+
+</style>
+<script>
+
+
+
+    function start() {
+        var namearr = new Array("张一","张二","张三","张四","张五");
+        var numberarr = new Array("19540201","19540202","19540203","19540204","19540205");
+        a = Math.floor(Math.random() * namearr.length);
+        myname = namearr[a];
+        mynumber = numberarr[a];
+
+        var d = new Date();
+        h = d.getHours();
+        m = d.getMinutes();
+        s = d.getSeconds();
+        time = h + "时" + m + "分" + s + "秒";
+
+        mytable = document.getElementById("id1");
+
+        addtr = document.createElement("tr");
+
+        addtd = document.createElement("td");
+        addtd1 = document.createElement("td");
+        addtd2 = document.createElement("td");
+
+        tdtext = document.createTextNode(myname);
+        td1text = document.createTextNode(time);
+        td2text = document.createTextNode(mynumber);
+
+        mytable.appendChild(addtr);
+
+        addtr.appendChild(addtd);
+        addtr.appendChild(addtd1);
+        addtr.appendChild(addtd2);
+
+        addtd.appendChild(tdtext);
+        addtd1.appendChild(td1text);
+        addtd2.appendChild(td2text);
+
+    }
+
+
+
+</script>
+
+<body>
+<table id="id1" border="5" align="center" style="color: red">
+<tr>
+    <td>姓名</td>
+    <td>时间</td>
+    <td>学号</td>
+</tr>
+</table>
+
+<p> </p>
+
+<div style="text-align: center">
+    <input type="button" value="抽奖" onclick="start()">
+</div>
+
+
+</body>
+</html>

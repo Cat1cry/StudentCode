@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+
+
+    function tj(){
+       str = document.getElementById("pid").value;
+       str = str.replaceAll(","," ");
+       str = str.replaceAll(".","");
+       strarray = str.split(" ");
+       document.getElementById("cout").innerText = "单词数为:" + strarray.length;
+
+       function dc(arr) {
+           obj = {}
+           for(i = 0;i < strarray.length;i++){
+
+               if(obj[strarray[i]]){
+                   obj[strarray[i]]++;
+               }else {
+                   obj[strarray[i]] = 1;
+               }
+           }
+           return obj;
+
+       }
+
+       a = dc(strarray);
+
+       for(i in a){
+           alert("单词："+ i + "，" + "出现次数：" + a[i])
+       }
+
+
+
+
+
+    }
+
+</script>
+<body>
+
+<style type="text/css">
+    .pcss{
+        width: 400px;
+        height: 300px;
+        max-width: 400px;
+        max-height: 300px;
+
+    }
+
+
+</style>
+
+<p>
+    <textarea class="pcss" id="pid">
+
+    </textarea>
+
+    <input type="button" value="统计字数" onclick="tj()">
+
+</p>
+<h3 id="cout"></h3>
+<h3 id="cout1"></h3>
+
+</body>
+</html>

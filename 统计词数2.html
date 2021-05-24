@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+
+
+    function tj() {
+        str = document.getElementById("pid").value;
+        strarray = str.split(" ");
+
+
+             num = 0;
+            for (j=0;j<strarray.length;j++){
+                for (k=j+1;k<strarray.length;k++){
+                    if(strarray[j]==strarray[k]){
+
+
+                        console.log(strarray[j])
+                        console.log(strarray[k])
+                    }
+
+                }
+            }
+
+
+
+    }
+
+
+
+</script>
+<body>
+
+<style type="text/css">
+    .pcss{
+        width: 400px;
+        height: 300px;
+        max-width: 400px;
+        max-height: 300px;
+
+    }
+
+
+</style>
+
+<p>
+    <textarea class="pcss" id="pid">
+
+    </textarea>
+
+    <input type="button" value="统计字数" onclick="tj()">
+
+</p>
+<h3 id="cout"></h3>
+
+
+</body>
+</html>

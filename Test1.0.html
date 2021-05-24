@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="displayid" align= "center">
+
+
+
+</body>
+<script>
+    pics = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"];
+    var index=0;
+    function display(){
+
+        document.getElementById("displayid").src=pics[(index++)%6];
+        setTimeout("display()",1000);
+    }
+    display();
+
+</script>
+</html>

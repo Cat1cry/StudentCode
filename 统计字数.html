@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+        function tj(){
+            p=document.getElementById("pid").value;
+
+            p = p.replace(/,/g," ");
+            pstr = p.replace(/\s+/g,"");
+            document.write(pstr)
+            alert(pstr.length)
+            document.getElementById("cout").innerText = "字数为:"pstr.length
+        }
+
+</script>
+<body>
+
+<style type="text/css">
+    .pcss{
+        width: 400px;
+        height: 300px;
+        max-width: 400px;
+        max-height: 300px;
+
+    }
+
+
+</style>
+
+<p>
+    <textarea class="pcss" id="pid">
+
+    </textarea>
+
+    <input type="button" value="统计字数" onclick="tj()">
+
+</p>
+<h3 id="cout"></h3>
+
+</body>
+</html>

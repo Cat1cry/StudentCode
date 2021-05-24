@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background: black;
+        font-size: 60px;
+        color: white;
+    }
+</style>
+
+<body>
+<p id="string" style="text-align: center"></p>
+</body>
+<script>
+    var i = 0;
+    mytext = "北京欢迎您！祝您玩的开心！"
+    var arrstring = new Array();
+    arrstring = mytext.split("");
+    function str() {
+
+        document.getElementById("string").innerText += arrstring[i];
+        i++;
+        if(i > arrstring.length - 1){
+            clearInterval(time)
+        }
+    }
+    time = setInterval("str()",300);
+
+</script>
+</html>

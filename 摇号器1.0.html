@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饭 圈 の 收 割</title>
+    <style>div{
+
+        border-style: solid;
+        border-width: 15px;
+        color: brown;
+
+    }
+
+
+
+    </style>
+</head>
+<script>
+    function btn(){
+            var arr = new Array()
+            arr[0]=  "❤蔡徐坤❤"
+            arr[1] = "❤肖战❤"
+            arr[2] = "❤王一博❤"
+            arr[3] = "❤吴亦凡❤"
+            arr[4] = "❤黄子韬❤"
+
+            var phone = new Array()
+            phone[0] = "123"
+            phone[1] = "234"
+            phone[2] = "345"
+            phone[3] = "456"
+            phone[4] = "567"
+
+        a = Math.floor(Math.random() * 5)
+        document.getElementById("c").innerHTML=arr[a] + "爱你哟！"
+
+
+        var img=document.getElementsByTagName("img")[0];
+
+        var imgarr=["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"];
+
+        img.src = imgarr[a]
+
+
+
+
+
+
+
+
+
+
+        }
+
+        setInterval(function(){
+            document.getElementById("date").innerHTML =  "您好，当前时间为：" + Date()
+
+        }, 60);
+
+        //setInterval(function (){setTimeout(alert("警告！警告！！你的人生已经浪费1分钟,远离饭圈，珍惜时间"),60000)},60000)
+
+
+
+
+
+</script>
+<body>
+
+<iframe  allowtransparency="true" frameborder="0" width="565" height="98" scrolling="no" src="//tianqi.eastday.com/plugin/widget_v1.html?sc=2&z=1&t=1&v=0&d=3&bd=0&k=&f=&q=1&a=0&c=58457&w=565&h=98&align=center"></iframe>
+
+<div id = "date"  style=" font:bold 11px 宋体;background-color:Yellow;text-align:center;color:orangered" ></div>
+
+<div id = "img" style="text-align: center;border:10px #000099   solid;">
+    <img src="6.jpg" alt="img">
+</div>
+
+    <p id = "c" style="text-align: center"> </p>
+   <div style="text-align: center"> <input type="button" id="btn" onclick="btn()" value="点击抽老公" style="width:200px;height:100px;" > </div>
+
+    <p class="outset" id = "p"></p>
+
+
+</body>
+</html>

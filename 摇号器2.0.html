@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+
+
+<script>
+        var arr=[];
+
+        function ischina(str) {
+            var reg=/^[\u4E00-\u9FA5]{2,4}$/;
+            return reg.test(str);
+
+        }
+
+        function setarr(){
+            add = document.getElementById("input").value;
+
+            if(ischina(add) == false){
+                alert("请输入中文！")
+            }else {
+                arr.push(add);
+            }
+        }
+
+
+
+        function cj(){
+            a = Math.floor(Math.random() * arr.length);
+            document.getElementById("c").innerHTML = arr[a] + "，恭喜您中奖了！"
+
+        }
+        setInterval(function(){
+            document.getElementById("date").innerHTML =  "您好，当前时间为：" + Date()
+
+        }, 60);
+
+
+
+
+
+</script>
+<body>
+
+<div id = "date"  style=" font:bold 11px 宋体;background-color:Yellow;text-align:center;color:orangered" ></div>
+<div style="text-align: center ">
+    <input type="text" id = "input" style="width:100px;height:30px;">
+</div>
+<p> </p>
+<div style="text-align: center">
+    <input type="button" id="btn"  onclick="cj()" value="抽奖" style="width:60px;height:30px;" >
+</div>
+<p> </p>
+<div style="text-align: center">
+    <input type="button" id="tj" onclick="setarr()" value="添加" style="width:60px;height:30px;">
+</div>
+
+<p id = "c" style="text-align: center;color: orange;font-weight: bold; font-size:45px; border:5px solid #fa8072;" > </p>
+
+
+
+</body>
+</html>

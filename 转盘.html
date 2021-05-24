@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="大作业CSS.css">
+</head>
+<script type="text/javascript" src="大作业JS.js"></script>
+
+
+
+
+<body onload="text()">
+
+<!-- 
+已完成：  
+    1、签到功能（可增加抽奖池的人数），实时显示抽奖池人数
+
+    2、实时时钟和图片轮播显示
+
+    3、转盘功能（名字滚动显示）
+
+    4、按钮摇号（长按匀速旋转，松开后，5S降速停止）
+
+    5、两种抽奖模式（重复，一次）
+
+    6、中奖者及时间在table或div中显示
+
+扩展功能：
+    1、正则表达式
+
+-->
+
+<div style="text-align: center">
+    <img id="img" class="Timg">
+</div>
+
+<div id = "date"  style=" font:bold 11px 宋体;background-color:lightskyblue;text-align:center;color:orangered" ></div>
+
+<div style="text-align: center">
+    <input type="text" id="INtext"  placeholder="请输入中文" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))">
+    <input type="button" value="添加" onclick="addArr()">
+</div>
+
+<div style="text-align: right;font-size: 20px;color: salmon">
+    <p id="number">当前剩余人数： </p>
+</div>
+
+<table id="id1" border="5" align="left" style="color: red;" >
+    <tr>
+        <td>-- 序号 --</td>
+        <td>-- 时间 --</td>
+        <td>-- 姓名 --</td>
+    </tr>
+</table>
+
+
+
+<div class="CloroDiv">
+    <p class="p1css" id="wheellocate1">1111</p>
+    <p class="p1css" id="wheellocate2">2222</p>
+    <p class="p1css">
+        <mark id="wheellocate3">3333</mark>
+    </p>
+    <p class="p1css" id="wheellocate4">4444</p>
+    <p class="p1css" id="wheellocate5">5555</p>
+</div>
+
+<p>
+    <div style="text-align: center">
+    <input type="button" value="抽奖" onmousedown="start_rotate()" onmouseup="slow_down()">
+</div>
+<p id="last" style="color: red"> </p>
+
+<div style="text-align: center" class="InputDive">
+    <from>
+        <input type="radio" name="test" value="1" >单次抽奖
+        <input type="radio" name="test" value="2" checked="checked" >重复抽奖
+
+    </from>
+</div>
+
+</body>
+<script>
+    setInterval(display(),3000);
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饭 圈 の 收 割</title>
+
+
+
+
+</head>
+
+<body>
+<img id="img" onmousemove="stop()" onmouseout="display()">
+
+
+
+
+</body>
+<script>
+
+    index = 0;
+    img = ["1.jpg","2.jpg","3.jpg"];
+
+    function display(){
+        document.getElementById("img").src=img[index];
+        time = setTimeout("display()",1000);
+        index++;
+        if(index >= 3){
+            index = 0;
+        }
+    }
+
+     setInterval(display(),3000);
+
+    function stop() {
+        clearTimeout(time);
+
+    }
+
+
+
+</script>
+</html>

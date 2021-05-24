@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<from>
+    <input type="radio" name="test" value="1" >1
+    <input type="radio" name="test" value="2" >2
+
+</from>
+<p><input type="button" onmousedown="get()" value="显示"></p>
+</body>
+<script>
+    function get(test) {
+       radio_obj = document.getElementsByName(test);
+       for(i=0;i<radio_obj.length;i++){
+            if(radio_obj[i].checked == true){
+                return radio_obj[i].value;
+
+            }
+       }
+        alert("您选取的是："+get("test"));
+    }
+
+
+</script>
+</html>

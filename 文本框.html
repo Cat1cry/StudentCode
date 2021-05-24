@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本框</title>
+    <style type="text/css">
+        .contentcss{
+            font-weight: bold;
+            font-family: 宋体;
+            font-size: 20px;
+            width: 400px;
+            height: 300px;
+            max-width: 400px;
+            max-height: 300px;
+        }
+        .messagecss{
+            width: 400px;
+            height: 30px;
+            max-width: 400px;
+            max-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <textarea class="contentcss" id="contentId" disabled="disabled">
+    </textarea>
+    <input type="button" value="清空" onclick="clear_all()">
+</p>
+<p>
+    <textarea class="messagecss" id="messageId">
+    </textarea>
+</p>
+<p>
+    <input type="button" value="发布" onclick="publish()" >
+<form>
+    <input type="radio" name="symbol" id="rd_num" value="num_symbol" >数字编号
+    <input type="radio" name="symbol" id="rd_point" value="point_symbol" >符号编号
+</form>
+</p>
+</body>
+<script>
+
+    function get(symbol) {
+        radio_obj = document.getElementsByName(symbol);
+        for(i=0;i<radio_obj.length;i++){
+            if(radio_obj[i].checked == true){
+                return radio_obj[i].value;
+
+            }
+        }
+
+    }
+    get();
+
+        document.getElementById("contentId").innerHTML = "";
+        document.getElementById("messageId").innerHTML = "";
+
+      var count = 1;
+      var hello = "🚩";
+      function publish(){
+        read = document.getElementById("messageId").value;
+        if(get("symbol") == "num_symbol"){
+            document.getElementById("contentId").innerHTML += count+ ". " + read + "\n";
+            count++;
+        }else {
+            document.getElementById("contentId").innerHTML += hello+ ". "+ read + "\n";
+            count = 1;
+        }
+
+    }
+
+    function clear_all() {
+          document.getElementById("contentId").innerText = "";
+          count = 1;
+
+    }
+
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+input{
+    text-align: center;
+}
+textarea{
+    resize: none;
+}
+fieldset{
+    border: 2px solid red;
+}
+</style>
+<body>
+
+
+<form action="" method="POST">
+<fieldset>
+
+    
+    <div style="text-align: center">
+
+        <input type="text" id="item1" placeholder="item1" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="item1">
+    
+        <input type="text" id="operator" placeholder="operator" name="oper">
+    
+        <input type="text" id="item2" placeholder="item2" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " name="item2">
+    
+    </div>
+    
+    <div style="text-align: center;">
+        <input onclick="math()" type="submit" value="前端">
+        <input type="submit" value="后端">  
+    </div>
+</fieldset>
+    
+</form>
+
+<div style="text-align: center">
+    <textarea id="res" placeholder="结果" disabled="disabled">   </textarea>
+</div>
+
+
+</body>
+<script>
+
+    var it1;
+    var it2;
+    var oper;
+    var Num;
+    
+
+    function math(){
+
+        it1 = document.getElementById("item1").value;
+        it2 = document.getElementById("item2").value;
+        oper = document.getElementById("operator").value;
+
+        
+
+        if(oper == '+'){
+           Num = parseInt(it1) + parseInt(it2);
+        }else if(oper == '-'){
+            Num = it1 - it2;
+        }else if (oper == '*'){
+            Num = it1 * it2;
+        }else if(oper == '/'){
+            Num = it1 / it2;
+        }else{
+            alert("请输入正确的运算符！");
+        }
+
+        document.getElementById("res").innerText = Num;
+
+    }
+
+</script>
+</html>

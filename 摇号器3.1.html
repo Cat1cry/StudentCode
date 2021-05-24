@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转盘</title>
+    <script>
+        count_num =0;
+        timer_delay =50;
+        bFalling_down=false;
+        function start_rotate(){
+            bFalling_down=false
+            timer_delay=50
+            rotate_wheel()
+        }
+        function slow_down() {
+            bFalling_down=true
+        }
+        function rotate_wheel() {
+            setTimeout(function () {
+                if(bFalling_down){
+                    timer_delay*=1.3
+                }
+                count_num++
+                document.getElementById("text").innerHTML=count_num
+                if(timer_delay < 800){
+                    rotate_wheel()
+                }
+            },timer_delay)
+        }
+    </script>
+</head>
+<body>
+<p style="font-size: 60px;text-align: center" id="text"></p>
+<div style="text-align: center">
+    <input type="button" onmousedown="start_rotate()" onmouseup="slow_down()" value="抽奖">
+</div>
+
+
+</body>
+</html>
